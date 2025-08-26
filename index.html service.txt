@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Services App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Local Services Hub</h1>
+    <p>Find Electricians, Plumbers, Mechanics near you!</p>
+  </header>
+
+  <div class="container">
+    <input type="text" id="search" class="search-bar" placeholder="Search for a service (e.g. Plumber)">
+    <div id="service-list"></div>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <!-- Our JS -->
+  <script src="app.js"></script>
+</body>
+</html>

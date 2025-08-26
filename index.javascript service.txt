@@ -1,0 +1,44 @@
+// 👉 Step 1: Firebase Config (replace with your project config)
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "SENDER_ID",
+  appId: "APP_ID"
+};
+
+// 👉 Step 2: Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+const serviceList = document.getElementById("service-list");
+const searchInput = document.getElementById("search");
+
+// 👉 Step 3: Display providers from Firestore
+async function displayServices(filter = "") {
+  serviceList.innerHTML = "";
+  const snapshot = await db.collection("providers").get();
+  snapshot.forEach(doc => {
+    const s = doc.data();
+    if (!filter || s.type.toLowerCase().includes(filter.toLowerCase())) {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <h3>${s.type}</h3>
+        <p><b>Name:</b> ${s.name}</p>
+        <p><b>Phone:</b> ${s.phone}</p>
+        <a class="btn" href="tel:${s.phone}">Call Now</a>
+      `;
+      serviceList.appendChild(card);
+    }
+  });
+}
+
+// 👉 Step 4: Search filter
+searchInput.addEventListener("input", (e) => {
+  displayServices(e.target.value);
+});
+
+// 👉 Step 5: Load all on start
+displayServices();
