@@ -30,7 +30,7 @@
       border-radius: 8px;
     }
     .card {
-      background: white;
+      background: black;
       padding: 15px;
       margin-bottom: 15px;
       border-radius: 10px;
@@ -45,7 +45,7 @@
       margin-top: 10px;
       padding: 8px 12px;
       background: #007bff;
-      color: white;
+      color: black;
       border-radius: 5px;
       text-decoration: none;
     }
@@ -53,8 +53,8 @@
 </head>
 <body>
   <header>
-    <h1>Local Services Hub</h1>
-    <p>Find Electricians, Plumbers, Mechanics near you!</p>
+    <h1>Local Service App</h1>
+    <p>Find Electricians, Plumbers, Mechanics, Aluminium near you!</p>
   </header>
 
   <div class="container">
